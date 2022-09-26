@@ -1,3 +1,4 @@
+#Put /etc/logrotate.d/
 /pass/*.log {
     daily
     rotate 10
