@@ -1,9 +1,0 @@
-/mnt/File_Server/NAS/syslog_RTX1210/*.log {
-    daily
-    rotate 10
-    compress
-    delaycompress
-    notifempty
-    create 775 root takagi
-    dateext
-}
