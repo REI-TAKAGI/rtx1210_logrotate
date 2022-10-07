@@ -1,10 +1,11 @@
-#Put /etc/logrotate.d/
-/pass/*.log {
+/mnt/File_Server/NAS/syslog_RTX1210/rtx1210.log {
     daily
     rotate 10
     compress
-    delaycompress
-    notifempty
-    create 775 root
+    ifempty
     dateext
+    create 755 root adm
+    postrotate
+    kill -HUP `cat /var/run/rsyslogd.pid`
+    endscript
 }
