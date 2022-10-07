@@ -1,4 +1,5 @@
-/mnt/File_Server/NAS/syslog_RTX1210/rtx1210.log {
+#Put /etc/logrotate.d/
+/pass/rtx1210.log {
     daily
     rotate 10
     compress
