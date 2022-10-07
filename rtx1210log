@@ -1,12 +1,14 @@
 #Put /etc/logrotate.d/
-/pass/rtx1210.log {
+/PASS/syslog_RTX1210/rtx1210.log {
     daily
     rotate 10
-    compress
     ifempty
     dateext
     create 755 root adm
+    sharedscripts
     postrotate
     kill -HUP `cat /var/run/rsyslogd.pid`
+    /bin/mv /PASS/syslog_RTX1210/rtx1210.log-`date '+%Y%m%d'` /PASS/syslog_RTX1210/rtx1210.log-`date '+%Y%m%d' -d '1days ago'`
+        /bin/gzip /PASS/syslog_RTX1210/rtx1210.log-`date '+%Y%m%d' -d '1days ago'`
     endscript
 }
